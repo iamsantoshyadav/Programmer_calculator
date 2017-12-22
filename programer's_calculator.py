@@ -1,7 +1,6 @@
-#%%
+
 #this program is about conversion of dcimal no into a binary no
-def dec_to_binary():
-    ip = input("Enter a decimal no : ")
+def dec_to_binary(ip):
     try :
         dec = int(ip)
         binno = []
@@ -15,12 +14,12 @@ def dec_to_binary():
     except :
         #Error message for the users
         print("You did not entered a valid value Please try again")
-#%%
+
 #this program is for performing binary to decimal conversion
-def binary_to_dec():
+def binary_to_dec(ip):
     deci=0
     data=[]
-    ip = input("Enter a binary no :")
+    ip = str(ip)
     length= len(ip)
     try :
         #Logic for converting n_bit no into a single no or single bit no
@@ -37,7 +36,7 @@ def binary_to_dec():
                 break
             else :
                 i=(len(data)-1)-nos
-                deci=deci+((data[i]*2)**i) #Logic for binary to decimal conversion
+                deci=deci+((data[nos]*2)**i) #Logic for binary to decimal conversion
         if deci>0:
             print("Dcimal equivelent no of ",data,"is",deci)
         else :
@@ -45,3 +44,18 @@ def binary_to_dec():
             
     except :
         print("You did not entered a valid value PLEASE ENTER BINBARY NO CAREFULLY")
+        
+        
+# THis function is for converting decimal no into octal no
+def dec_to_octal(ip):
+    data=[]
+    try :
+        dec=int(ip)
+        while dec!=0:
+            rem=dec%8
+            data.append(rem)
+            dec=int(dec/8)
+    except :
+        print("Enter a valid decimal value carefully");
+    print("Octal conversion of decimal no ",ip,"is",list(reversed(data)))
+#%%
