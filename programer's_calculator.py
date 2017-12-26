@@ -45,6 +45,3 @@ def binary_to_dec():
             
     except :
         print("You did not entered a valid value PLEASE ENTER BINBARY NO CAREFULLY")
-#%%
-a=[12,4,66]
-print(len(a)-1)
