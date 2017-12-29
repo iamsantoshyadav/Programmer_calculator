@@ -1,4 +1,10 @@
-
+"""
+#############################################################################################################
+##
+##              This is Decimal to binary conversion section
+##
+######################################################################################################
+"""
 #this program is about conversion of dcimal no into a binary no
 def dec_to_binary(ip):
     try :
@@ -15,11 +21,19 @@ def dec_to_binary(ip):
         print("You did not entered a valid value Please try again")
     #List(reversed(list_name) is use for reverse the list)
     strdata=""
-    binno = list(reversed(binno))  
+    binno = list(reversed(binno)) 
     for no in range(len(binno)):
         string=str(binno[no])
         strdata=strdata+string
-    print("Binary no for ",ip,"is",strdata)
+    return(strdata)
+    
+"""
+#############################################################################################################
+##
+##              This is binary to decimal conversion section
+##
+######################################################################################################
+"""
 #this program is for performing binary to decimal conversion
 def binary_to_dec(ip):
     deci=0
@@ -50,9 +64,13 @@ def binary_to_dec(ip):
             
     except :
         print("You did not entered a valid value PLEASE ENTER BINBARY NO CAREFULLY")
-        
-        
-
+        """
+#############################################################################################################
+##
+##              This is Decimal to Octal conversion section
+##
+######################################################################################################
+"""
 # THis function is for converting decimal no into octal no
 def dec_to_octal(ip):
     data=[]
@@ -70,12 +88,17 @@ def dec_to_octal(ip):
         print("Octal conversion of decimal no ",ip,"is",strdata)
     except :
         print("Enter a valid decimal value carefully");
-   
 
-
+"""
+#############################################################################################################
+##
+##              This is octal to decimal conversion section
+##
+######################################################################################################
+"""
 def octal_to_decimal(ip):
     data=[]
-    octal=0
+    deci=0
     try :
         ip=str(ip)
         length=len(ip)
@@ -85,20 +108,41 @@ def octal_to_decimal(ip):
         for no in range(length-1,-1,-1):
             if data[no] not in {0,1,2,3,4,5,6,7}:
                 print("Entered no. is not an octal no Please try again")
-                octal=0
+                deci=0
                 break
             else :
                 i=(length-1)-no
-                octal=octal+(data[no]*(8**i))
-        if octal>0 :
-            print("Decimal equivelent no of ",ip,"is : ",octal)
+                deci=deci+(data[no]*(8**i))
+        if deci>0 :
+            return(deci)
         else :
             print("Operation can not be purform for no ",ip)
             
     except :
         print("You have not entered a valid value Please enter a valid octal no")
-        
+
+"""
+#############################################################################################################
+###
+###             This is octal to binary conversion section
+###
+######################################################################################################
+"""
+def octal_to_binary():
+    ip=input("Enter a octal no : ")
+    try :
+        ip=int(ip)
+        check=str(ip)
+        for nos in check :
+            nos=int(nos)
+            if nos not in {0,1,2,3,4,5,6,7} :
+                print("Entered value is not an octal no : ")
+                break
+        dec=octal_to_decimal(ip)
+        binary=dec_to_binary(dec)
+        print("Binary  value is : ",binary)
+    except :
+        print("Entered no is not a valid value please enter carefully :")
 #%%
-stri=""+"yadav"
-stri=stri+"name"
-print(stri)
+
+    
