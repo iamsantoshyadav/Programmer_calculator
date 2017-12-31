@@ -64,7 +64,7 @@ def binary_to_dec(ip):
             
     except :
         print("You did not entered a valid value PLEASE ENTER BINBARY NO CAREFULLY")
-        """
+"""
 #############################################################################################################
 ##
 ##              This is Decimal to Octal conversion section
@@ -144,5 +144,41 @@ def octal_to_binary():
     except :
         print("Entered no is not a valid value please enter carefully :")
 #%%
-
-    
+"""
+#############################################################################################################
+###
+###             This is Decimal to Hexadecimal conversion section
+###
+######################################################################################################
+"""
+def decimal_to_hex():
+    ip=input("Enter a Decimal no : ")
+    hex_no=[]
+    try :
+        ip=int(ip)
+        data=ip
+        while data!=0:
+            rem=data%16
+            hex_no.append(rem)
+            data=int(data/16)
+        hex_no=list(reversed(hex_no))
+        for no in range(len(hex_no)):
+            hex_no[no]=str(hex_no[no])
+            if hex_no[no]=="10" :
+                hex_no[no]="A"
+            if hex_no[no]=="11":
+                hex_no[no]="B"
+            if hex_no[no]=="12":
+                hex_no[no]="C"
+            if hex_no[no]=="13":
+                hex_no[no]="D"
+            if hex_no[no]=="14":
+                hex_no[no]="E"
+            if hex_no[no]=="15":
+                hex_no[no]="F"
+        hex_str=""
+        for no in hex_no:
+            hex_str=hex_str+no
+        print("Hex no : ",hex_str)
+    except :
+        print("Enterde value is not a valid no Please try again ")
