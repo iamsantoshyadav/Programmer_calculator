@@ -20,13 +20,12 @@ def dec_to_binary(ip):
         #Error message for the users
         print("You did not entered a valid value Please try again")
     #List(reversed(list_name) is use for reverse the list)
-    strdata=""
+    str_bin=""
     binno = list(reversed(binno)) 
     for no in range(len(binno)):
         string=str(binno[no])
-        strdata=strdata+string
-    return(strdata)
-    
+        str_bin=str_bin+string
+    return(str_bin)    
 """
 #############################################################################################################
 ##
@@ -59,11 +58,13 @@ def binary_to_dec(ip):
                 deci=deci+((data[nos]*2)**i) #Logic for binary to decimal conversion
         if deci>0:
             print("Dcimal equivelent no of ",data,"is",deci)
+            return(deci)
         else :
             print("For given no ",data,"operation can't perform PLEASE TRY AGAIN")
             
     except :
         print("You did not entered a valid value PLEASE ENTER BINBARY NO CAREFULLY")
+
 """
 #############################################################################################################
 ##
@@ -143,7 +144,6 @@ def octal_to_binary():
         print("Binary  value is : ",binary)
     except :
         print("Entered no is not a valid value please enter carefully :")
-#%%
 """
 #############################################################################################################
 ###
@@ -151,11 +151,11 @@ def octal_to_binary():
 ###
 ######################################################################################################
 """
-def decimal_to_hex():
-    ip=input("Enter a Decimal no : ")
+def decimal_to_hex(ip):
+    ip=str(ip)
     hex_no=[]
     try :
-        ip=int(ip)
+        ip=int(ip) #it will fail for string case for example argument id as334 etc
         data=ip
         while data!=0:
             rem=data%16
@@ -179,10 +179,9 @@ def decimal_to_hex():
         hex_str=""
         for no in hex_no:
             hex_str=hex_str+no
-        print("Hex no : ",hex_str)
+        return(hex_str)
     except :
         print("Enterde value is not a valid no Please try again ")
-#%%
 """
 #############################################################################################################
 ###
@@ -190,10 +189,10 @@ def decimal_to_hex():
 ###
 ######################################################################################################
 """
-def hex_to_dec():
+def hex_to_dec(ip):
     data=[]
-    
-    ip=input("Enter a Hex no : ")
+    hexa=None
+    ip=str(ip)
     for word in ip :
         if word not in {"a","b","c","d","e","f","A","B","C","D","E","F","0","1","2","3","4","5","6","7","8","9"}:
             print("Enter avalid hexadecimal no ")
@@ -224,4 +223,45 @@ def hex_to_dec():
     else :
         decimal=str(sums)
         return(decimal)
-        
+
+"""
+#############################################################################################################
+###
+###             This is Hexadecimal to Binary conversion section
+###
+######################################################################################################
+"""
+def hex_to_bin():
+    ip=input("Enter a Hexadecimal no : ")
+    for word in ip :
+        if word not in {"a","b","c","d","e","f","A","B","C","D","E","F","0","1","2","3","4","5","6","7","8","9"}:
+            print("Enter avalid hexadecimal no ")
+        else :
+            deci=hex_to_dec(ip)
+            deci=int(deci)
+            binary=dec_to_binary(deci)
+    print("binary : ",binary)
+
+"""
+#############################################################################################################
+###
+###             This is Binary to Hexadecimal conversion section
+###
+######################################################################################################
+"""
+def bin_to_hex() :
+    ip=input("Enter a binary no : ")
+    hex_str=None
+    try :
+        ip=str(ip)
+        for word in ip :
+            if word not in {"0","1",} :
+                print(ip,"is not a binary no ")
+                hex_str=0
+                break
+        if hex_str!=0 :
+            deci=binary_to_dec(ip)
+            hex_str=decimal_to_hex(deci)
+            return(hex_str)
+    except :
+        print("Please enter a valid value")
