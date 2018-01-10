@@ -182,3 +182,46 @@ def decimal_to_hex():
         print("Hex no : ",hex_str)
     except :
         print("Enterde value is not a valid no Please try again ")
+#%%
+"""
+#############################################################################################################
+###
+###             This is Hexadecimal to Decimal conversion section
+###
+######################################################################################################
+"""
+def hex_to_dec():
+    data=[]
+    
+    ip=input("Enter a Hex no : ")
+    for word in ip :
+        if word not in {"a","b","c","d","e","f","A","B","C","D","E","F","0","1","2","3","4","5","6","7","8","9"}:
+            print("Enter avalid hexadecimal no ")
+            hexa=0
+        else :
+           data.append(word)
+    for no in range(len(data)) :
+        if data[no] in {"a","A"}:
+            data[no]=10
+        if data[no] in {"b","B"}:
+            data[no]=11
+        if data[no] in {"c","C"} :
+            data[no]=12
+        if data[no] in {"d","D"} :
+            data[no]=13
+        if data[no] in {"e","E"}:
+            data[no]=14
+        if data[no] in {"f","F"}:
+            data[no]=15
+        data[no]=int(data[no])
+    data=list(reversed(data))
+    sums=0
+    for no in range(len(data)) :
+        powr=16**no
+        sums=sums+(data[no]*powr)
+    if hexa==0:
+        return(0)
+    else :
+        decimal=str(sums)
+        return(decimal)
+        
