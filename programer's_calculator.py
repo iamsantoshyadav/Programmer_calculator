@@ -87,6 +87,7 @@ def dec_to_octal(ip):
             string=str(data[no])
             strdata=strdata+string
         print("Octal conversion of decimal no ",ip,"is",strdata)
+        return(strdata)
     except :
         print("Enter a valid decimal value carefully");
 
@@ -265,3 +266,47 @@ def bin_to_hex() :
             return(hex_str)
     except :
         print("Please enter a valid value")
+"""
+#############################################################################################################
+###
+###             This is hexadecimal to Octal conversion conversion section
+###
+######################################################################################################
+"""
+def hex_to_oct(ip) :
+    ip=str(ip)
+    for words in ip :
+        if words not in {"a","b","c","d","e","f","A","B","C","D","E","F","0","1","2","3","4","5","6","7","8","9"}:
+            print("Enter a valid hex no")
+            ip=None
+            break
+    if ip!=None :
+        dec=hex_to_dec(ip)
+        octal=dec_to_octal(dec)
+        return(octal)
+#%%
+"""
+#############################################################################################################
+###
+###             This is Octal to Hexadecimal conversion conversion section
+###
+######################################################################################################
+"""
+def oct_to_hex() :
+    ip=input("Enter a octal no : ")
+    try : 
+        ip=int(ip)
+    except :
+        ip=None
+        print("Enter a valid octal no ")
+    if ip!=None:
+        ip=str(ip)
+        for word in ip :
+            if word not in {"0","1","2","3","4","5","6","7"}:
+                print("Given no is not a ocatl no")
+                break
+        dec=octal_to_decimal(ip)
+        hexa=decimal_to_hex(dec)
+        return(hexa)
+        
+        
